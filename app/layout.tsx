@@ -1,0 +1,53 @@
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'Delta Sollutions',
+  description: 'Unimos engenharia mecânica, design eletrônico e automação inteligente para entregar soluções completas.',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="pt-BR">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <link rel="icon" type="image/png" href="/faviconnavegador/delta-circle.png" />
+        <link 
+          rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <script dangerouslySetInnerHTML={{__html: `
+          (function() {
+            function hideLoading() {
+              const loader = document.getElementById('initial-loading-screen');
+              if (loader) {
+                loader.classList.add('fade-out');
+                setTimeout(function() {
+                  loader.style.display = 'none';
+                }, 500);
+              }
+            }
+            setTimeout(hideLoading, 2000);
+          })();
+        `}} />
+      </head>
+      <body>
+        <div id="initial-loading-screen" className="loading-screen">
+          <div className="loading-content">
+            <div className="loading-spinner">
+              <div className="spinner-ring"></div>
+              <div className="spinner-ring"></div>
+              <div className="spinner-ring"></div>
+            </div>
+            <p className="loading-text">carregando...</p>
+          </div>
+        </div>
+        {children}
+      </body>
+    </html>
+  );
+}
