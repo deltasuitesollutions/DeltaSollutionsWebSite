@@ -6,13 +6,14 @@ export default function ProximoEvento() {
   const [visivel, setVisivel] = useState(false);
   const [ampliada, setAmpliada] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisivel(true);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  // Botão temporariamente desativado
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setVisivel(true);
+  //   }, 1000);
+  //
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const abrirModal = () => setAmpliada(true);
   const fecharModal = () => setAmpliada(false);
